@@ -1054,3 +1054,210 @@ body {
   background-color: #22c55e;
 
 }
+
+.comentarios-container{
+
+  width: 90%;
+  margin: 60px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+
+}
+
+.comentarios-container h2{
+
+  text-align: center;
+  margin-bottom: 10px;
+  color: #1b4332;
+
+}
+
+.comentarios-container p{
+
+  text-align: center;
+  margin-bottom: 30px;
+  color: gray;
+
+}
+
+.comentario-form{
+
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+
+}
+
+.comentario-form input{
+
+  flex: 1;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+
+}
+
+.comentario-form button{
+
+  background: #2d6a4f;
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+
+}
+
+.comentarios-lista{
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+}
+
+.comentario-card{
+
+  background: #f1f1f1;
+  padding: 15px;
+  border-radius: 10px;
+
+}
+
+.admin-container{
+
+  width: 90%;
+  margin: 60px auto;
+  padding: 40px;
+  text-align: center;
+
+}
+
+.admin-container h1{
+
+  color: #d62828;
+  margin-bottom: 20px;
+  font-size: 40px;
+
+}
+
+.admin-container p{
+
+  margin-bottom: 20px;
+  color: #555;
+
+}
+
+.admin-card{
+
+  background: #fff3f3;
+  border: 2px solid #ffb3b3;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+
+}
+
+.admin-card h2{
+
+  color: #d62828;
+  margin-bottom: 20px;
+
+}
+
+.admin-card p{
+
+  font-size: 18px;
+  color: black;
+  margin: 10px 0;
+
+}
+
+.login-container{
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+
+}
+
+.login-card{
+
+  width: 400px;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+
+}
+
+.login-card input{
+
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+
+}
+
+.login-card button{
+
+  width: 100%;
+  padding: 14px;
+  background: #2d6a4f;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+}
+
+.lab-container{
+
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+
+}
+
+.lab-card{
+
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  text-align: center;
+
+}
+
+.lab-card h2{
+
+  color: #2d6a4f;
+  margin-bottom: 15px;
+
+}
+
+.lab-card p{
+
+  margin-bottom: 20px;
+  color: #555;
+
+}
+
+.lab-card button{
+
+  padding: 12px 20px;
+  border: none;
+  background: #2d6a4f;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+
+}

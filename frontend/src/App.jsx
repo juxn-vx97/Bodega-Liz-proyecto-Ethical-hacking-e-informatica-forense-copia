@@ -1,11 +1,14 @@
 import './App.css'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { Routes, Route } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
 
+import Lab from './pages/Lab'
+import Login from './pages/Login'
+import AdminDebug from './pages/AdminDebug'
 import Home from './pages/Home'
 import Productos from './pages/Productos'
 import Servicios from './pages/Servicios'
@@ -14,7 +17,32 @@ import Carrito from './pages/Carrito'
 
 function App() {
 
-  const [carrito, setCarrito] = useState([])
+const [carrito, setCarrito] = useState([])
+
+useEffect(() => {
+
+  const carritoGuardado =
+    localStorage.getItem('carrito')
+
+  if (carritoGuardado) {
+
+    setCarrito(JSON.parse(carritoGuardado))
+
+  }
+
+}, [])
+
+  useEffect(() => {
+
+    localStorage.setItem(
+
+      'carrito',
+
+      JSON.stringify(carrito)
+
+    )
+
+  }, [carrito])
 
   return (
 
@@ -24,15 +52,16 @@ function App() {
 
       <Routes>
 
-<Route
-  path="/"
-  element={
-    <Home
-      carrito={carrito}
-      setCarrito={setCarrito}
-    />
-  }
-/>
+        <Route
+          path="/"
+          element={
+            <Home
+              carrito={carrito}
+              setCarrito={setCarrito}
+            />
+          }
+        />
+
         <Route
           path="/productos"
           element={
@@ -43,25 +72,46 @@ function App() {
           }
         />
 
-        <Route path="/servicios" element={<Servicios />} />
+        <Route
+          path="/servicios"
+          element={<Servicios />}
+        />
 
-        <Route path="/contacto" element={<Contacto />} />
+        <Route
+          path="/contacto"
+          element={<Contacto />}
+        />
 
         <Route
           path="/carrito"
           element={
-            
-  <Carrito
-    carrito={carrito}
-    setCarrito={setCarrito}
-  />
-}
+            <Carrito
+              carrito={carrito}
+              setCarrito={setCarrito}
+            />
+          }
+        />
+
+        <Route
+          path="/admin-debug"
+          element={<AdminDebug />}
+        />
+
+        <Route
+          path="/login"
+          element={<Login />}
+        />
+
+        <Route
+          path="/lab"
+          element={<Lab />}
         />
 
       </Routes>
 
     </div>
+
   );
 }
 
-export default App;
+export default App

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Hero from '../components/Hero'
+import Comentarios from '../components/Comentarios'
 import BannerPromo from '../components/BannerPromo'
 import Categorias from '../components/Categorias'
 import Promociones from '../components/Promociones'
@@ -122,6 +123,8 @@ const [categoriaSeleccionada, setCategoriaSeleccionada] =
         }
 
       </section>
+
+      <Comentarios />
 
       <Footer />
 
