@@ -58,7 +58,19 @@ function Navbar(props) {
 
       <Link to="/carrito" className="cart">
 
-        🛒 {props.carrito.length}
+        🛒 {
+
+  props.carrito.reduce(
+
+    (total, producto) =>
+
+      total + producto.cantidad,
+
+    0
+
+  )
+
+}
 
       </Link>
 

@@ -1261,3 +1261,71 @@ body {
   cursor: pointer;
 
 }
+
+.lab-home {
+
+  padding: 60px 20px;
+
+  text-align: center;
+
+  background: #fff5f5;
+
+}
+
+.lab-home h1 {
+
+  font-size: 40px;
+
+  color: #d62828;
+
+  margin-bottom: 10px;
+
+}
+
+.lab-home p {
+
+  margin-bottom: 30px;
+
+  color: #555;
+
+}
+
+.lab-buttons {
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+
+}
+
+.lab-buttons button {
+
+  padding: 15px 25px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #d62828;
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+}
+
+.lab-buttons button:hover {
+
+  background: #a4161a;
+
+  transform: scale(1.05);
+
+}

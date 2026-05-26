@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import Comentarios from '../components/Comentarios'
 import BannerPromo from '../components/BannerPromo'
@@ -125,6 +126,46 @@ const [categoriaSeleccionada, setCategoriaSeleccionada] =
       </section>
 
       <Comentarios />
+
+      <section className="lab-home">
+
+  <h1>
+    🧪 Laboratorio OWASP
+  </h1>
+
+  <p>
+    Accesos rápidos a vulnerabilidades educativas.
+  </p>
+
+  <div className="lab-buttons">
+
+    <Link to="/login">
+      <button>
+        🔐 Login Vulnerable
+      </button>
+    </Link>
+
+    <Link to="/admin-debug">
+      <button>
+        ⚠️ Admin Debug
+      </button>
+    </Link>
+
+    <Link to="/lab">
+      <button>
+        🧪 Panel OWASP
+      </button>
+    </Link>
+
+    <Link to="/carrito">
+      <button>
+        💰 Manipulación de precios
+      </button>
+    </Link>
+
+  </div>
+
+</section>
 
       <Footer />
 
