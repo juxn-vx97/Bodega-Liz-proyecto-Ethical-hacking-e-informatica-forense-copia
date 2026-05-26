@@ -1,25 +1,28 @@
 import { useState } from 'react'
 
+import { useNavigate } from 'react-router-dom'
+
 function Login() {
 
+  const navigate = useNavigate()
+
   const [usuario, setUsuario] = useState('')
+
   const [password, setPassword] = useState('')
 
   function iniciarSesion() {
 
-    if (
+    if (usuario && password) {
 
-      usuario === 'admin'
-      &&
-      password === '123456'
+      localStorage.setItem(
 
-    ) {
+        'token',
 
-      alert('Acceso concedido')
+        'authenticated'
 
-    } else {
+      )
 
-      alert('Credenciales incorrectas')
+      navigate('/dashboard')
 
     }
 
@@ -31,10 +34,12 @@ function Login() {
 
       <section className="page-title">
 
-        <h1>Login Administrativo</h1>
+        <h1>
+          Portal Administrativo
+        </h1>
 
         <p>
-          Acceso restringido para administradores.
+          Acceso interno.
         </p>
 
       </section>
@@ -47,18 +52,24 @@ function Login() {
             type="text"
             placeholder="Usuario"
             value={usuario}
-            onChange={(e) => setUsuario(e.target.value)}
+            onChange={(e) =>
+              setUsuario(e.target.value)
+            }
           />
 
           <input
             type="password"
             placeholder="Contraseña"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) =>
+              setPassword(e.target.value)
+            }
           />
 
           <button onClick={iniciarSesion}>
-            Iniciar sesión
+
+            Ingresar
+
           </button>
 
         </div>
@@ -66,7 +77,9 @@ function Login() {
       </section>
 
     </div>
+
   )
+
 }
 
 export default Login

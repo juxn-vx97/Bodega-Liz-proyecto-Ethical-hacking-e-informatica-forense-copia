@@ -4,30 +4,40 @@ function ProductCard(props) {
 
     const productoExistente = props.carrito.find(
 
-      (producto) => producto.nombre === props.nombre
+      (producto) =>
+
+        producto.nombre === props.nombre
 
     )
 
-
     if (productoExistente) {
 
-      const nuevoCarrito = props.carrito.map((producto) => {
+      const nuevoCarrito = props.carrito.map(
 
-        if (producto.nombre === props.nombre) {
+        (producto) => {
 
-          return {
+          if (
 
-            ...producto,
+            producto.nombre === props.nombre
 
-            cantidad: producto.cantidad + 1
+          ) {
+
+            return {
+
+              ...producto,
+
+              cantidad:
+                producto.cantidad + 1
+
+            }
 
           }
 
+          return producto
+
         }
 
-        return producto
-
-      })
+      )
 
       props.setCarrito(nuevoCarrito)
 
@@ -55,22 +65,35 @@ function ProductCard(props) {
 
   }
 
-
   return (
+
     <div className="card">
 
-      <img src={props.imagen} alt={props.nombre} />
+      <img
+        src={props.imagen}
+        alt={props.nombre}
+      />
 
-      <h2>{props.nombre}</h2>
+      <h2>
+        {props.nombre}
+      </h2>
 
-      <p>Precio: S/ {props.precio}</p>
+      <p>
+
+        Precio: S/ {props.precio}
+
+      </p>
 
       <button onClick={agregarCarrito}>
+
         Agregar al carrito
+
       </button>
 
     </div>
-  );
+
+  )
+
 }
 
-export default ProductCard;
+export default ProductCard

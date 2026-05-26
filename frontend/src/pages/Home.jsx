@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+
 import Hero from '../components/Hero'
 import Comentarios from '../components/Comentarios'
 import BannerPromo from '../components/BannerPromo'
@@ -18,71 +19,84 @@ import gloriaImg from '../assets/lechegloria.webp'
 
 function Home(props) {
 
- const productos = [
+  // VULNERABILIDAD CLIENT-SIDE
+  // Manipulación de precios desde URL
 
-  {
-    id: 1,
-    nombre: 'Coca Cola',
-    precio: '4.50',
-    imagen: cocaColaImg,
-    categoria: 'Bebidas'
-  },
+  const query = new URLSearchParams(
+    window.location.search
+  )
 
-  {
-    id: 2,
-    nombre: 'Papas Lays',
-    precio: '3.00',
-    imagen: laysImg,
-    categoria: 'Snacks'
-  },
+  const promo = query.get('promo')
 
-  {
-    id: 3,
-    nombre: 'Galletas Oreo',
-    precio: '2.50',
-    imagen: oreoImg,
-    categoria: 'Galletas'
-  },
+  const productos = [
 
-  {
-    id: 4,
-    nombre: 'Doritos',
-    precio: '5.00',
-    imagen: doritosImg,
-    categoria: 'Snacks'
-  },
+    {
+      id: 1,
+      nombre: 'Coca Cola',
+      precio: promo ? '0.10' : '4.50',
+      imagen: cocaColaImg,
+      categoria: 'Bebidas'
+    },
 
-  {
-    id: 5,
-    nombre: 'Leche Gloria',
-    precio: '5.50',
-    imagen: gloriaImg,
-    categoria: 'Primera necesidad'
-  },
+    {
+      id: 2,
+      nombre: 'Papas Lays',
+      precio: promo ? '0.20' : '3.00',
+      imagen: laysImg,
+      categoria: 'Snacks'
+    },
 
-  {
-    id: 6,
-    nombre: 'Agua Cielo',
-    precio: '2.00',
-    imagen: aguaImg,
-    categoria: 'Bebidas'
-  }
+    {
+      id: 3,
+      nombre: 'Galletas Oreo',
+      precio: promo ? '0.15' : '2.50',
+      imagen: oreoImg,
+      categoria: 'Galletas'
+    },
 
-]
+    {
+      id: 4,
+      nombre: 'Doritos',
+      precio: promo ? '0.30' : '5.00',
+      imagen: doritosImg,
+      categoria: 'Snacks'
+    },
 
-const [categoriaSeleccionada, setCategoriaSeleccionada] =
-  useState('Todos')
+    {
+      id: 5,
+      nombre: 'Leche Gloria',
+      precio: promo ? '0.40' : '5.50',
+      imagen: gloriaImg,
+      categoria: 'Primera necesidad'
+    },
+
+    {
+      id: 6,
+      nombre: 'Agua Cielo',
+      precio: promo ? '0.05' : '2.00',
+      imagen: aguaImg,
+      categoria: 'Bebidas'
+    }
+
+  ]
+
+  const [categoriaSeleccionada, setCategoriaSeleccionada] =
+    useState('Todos')
 
   const productosFiltrados =
-  categoriaSeleccionada === 'Todos'
 
-    ? productos
+    categoriaSeleccionada === 'Todos'
 
-    : productos.filter(
+      ? productos
 
-        (producto) =>
-          producto.categoria === categoriaSeleccionada
-      )
+      : productos.filter(
+
+          (producto) =>
+
+            producto.categoria ===
+            categoriaSeleccionada
+
+        )
 
   return (
 
@@ -91,15 +105,18 @@ const [categoriaSeleccionada, setCategoriaSeleccionada] =
       <Hero />
 
       <Categorias
-         setCategoriaSeleccionada={
-         setCategoriaSeleccionada
-      }
-/>
-        <BannerPromo />
+        setCategoriaSeleccionada={
+          setCategoriaSeleccionada
+        }
+      />
 
-        <section className="page-title">
+      <BannerPromo />
 
-        <h1>Productos Destacados</h1>
+      <section className="page-title">
+
+        <h1>
+          Productos Destacados
+        </h1>
 
         <p>
           Descubre nuestros productos más populares.
@@ -120,6 +137,7 @@ const [categoriaSeleccionada, setCategoriaSeleccionada] =
               carrito={props.carrito}
               setCarrito={props.setCarrito}
             />
+
           ))
         }
 
@@ -127,51 +145,12 @@ const [categoriaSeleccionada, setCategoriaSeleccionada] =
 
       <Comentarios />
 
-      <section className="lab-home">
-
-  <h1>
-    🧪 Laboratorio OWASP
-  </h1>
-
-  <p>
-    Accesos rápidos a vulnerabilidades educativas.
-  </p>
-
-  <div className="lab-buttons">
-
-    <Link to="/login">
-      <button>
-        🔐 Login Vulnerable
-      </button>
-    </Link>
-
-    <Link to="/admin-debug">
-      <button>
-        ⚠️ Admin Debug
-      </button>
-    </Link>
-
-    <Link to="/lab">
-      <button>
-        🧪 Panel OWASP
-      </button>
-    </Link>
-
-    <Link to="/carrito">
-      <button>
-        💰 Manipulación de precios
-      </button>
-    </Link>
-
-  </div>
-
-</section>
-
       <Footer />
 
     </div>
 
-  );
+  )
+
 }
 
-export default Home;
+export default Home

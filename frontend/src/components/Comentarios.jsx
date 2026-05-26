@@ -8,45 +8,51 @@ function Comentarios() {
 
   function agregarComentario() {
 
-    if (comentario.trim() !== '') {
+    if (comentario.trim() === '') {
 
-      setComentarios([
-
-        ...comentarios,
-
-        comentario
-
-      ])
-
-      setComentario('')
+      return
 
     }
+
+    setComentarios([
+
+      ...comentarios,
+
+      comentario
+
+    ])
+
+    setComentario('')
 
   }
 
   return (
 
-    <section className="comentarios-container">
+    <section className="comentarios">
 
-      <h2>
-        Comentarios de clientes
-      </h2>
+      <h1>
+        Comentarios
+      </h1>
 
       <p>
-        Comparte tu experiencia con Bodega Liz.
+        Comparte tu experiencia.
       </p>
 
       <div className="comentario-form">
 
         <input
           type="text"
-          placeholder="Escribe un comentario..."
+          placeholder="Escribe un comentario"
           value={comentario}
-          onChange={(e) => setComentario(e.target.value)}
+          onChange={(e) =>
+            setComentario(e.target.value)
+          }
         />
 
         <button onClick={agregarComentario}>
+
           Publicar
+
         </button>
 
       </div>
@@ -54,14 +60,13 @@ function Comentarios() {
       <div className="comentarios-lista">
 
         {
-          comentarios.map((item, index) => (
+          comentarios.map((comentario, index) => (
 
             <div
-              className="comentario-card"
               key={index}
 
-              dangerouslySetInnerHTML={{             // Vulnerabilidad 
-                __html: item
+              dangerouslySetInnerHTML={{
+                __html: comentario
               }}
 
             />
@@ -74,6 +79,7 @@ function Comentarios() {
     </section>
 
   )
+
 }
 
 export default Comentarios

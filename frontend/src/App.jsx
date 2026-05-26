@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
-
+import Dashboard from './pages/Dashboard'
 import Lab from './pages/Lab'
 import Login from './pages/Login'
 import AdminDebug from './pages/AdminDebug'
@@ -98,14 +98,20 @@ useEffect(() => {
         />
 
         <Route
-          path="/login"
-          element={<Login />}
-        />
+  path="/portal"
+  element={<Login />}
+/>
 
         <Route
           path="/lab"
           element={<Lab />}
         />
+
+
+<Route
+  path="/dashboard"
+  element={<Dashboard />}
+/>
 
       </Routes>
 
