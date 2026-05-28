@@ -66,13 +66,31 @@ function Carrito(props) {
 
 
 
-  const total = props.carrito.reduce((acumulador, producto) => {
+ const total = props.carrito.reduce(
 
-    return acumulador +
+  (acumulador, producto) => {
 
-      (Number(producto.precio) * producto.cantidad)
+    return (
 
-  }, 0)
+      acumulador +
+
+      (
+
+        Number(producto.precio)
+
+        *
+
+        Number(producto.cantidad)
+
+      )
+
+    )
+
+  },
+
+  0
+
+)
 
 
 
@@ -134,10 +152,23 @@ function Carrito(props) {
               </div>
 
 
+<p>
 
-              <p>
-                S/ {(producto.precio * producto.cantidad).toFixed(2)}
-              </p>
+  S/ {
+
+    (
+
+      Number(producto.precio)
+
+      *
+
+      Number(producto.cantidad)
+
+    ).toFixed(2)
+
+  }
+
+</p>
 
 
 
